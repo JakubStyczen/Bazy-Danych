@@ -45,20 +45,51 @@ data = df[df$Wiek < 30,]
 install.packages("ggplot2")
 library(ggplot2)
 
-df_cw4 <- data.frame(
+df_AIR <- data.frame(
   Przedmiot = c("Analiza i Bazy Danych", "Metody Numeryczne", "Eksploracja Danych"),
   Średnia = c(71, 67, 89),
   Rocznik = c(2022, 2022, 2022)
 )
 
-wykres_cw4 <- ggplot(df_cw4, aes(x = Przedmiot, y = Średnia)) +
+wykres_AIR <- ggplot(df_AIR, aes(x = Przedmiot, y = Średnia)) +
   geom_bar(stat = "identity", fill = "skyblue") +
   labs(title = "Średnia z przedmiotów dla rocznika 2022",
        x = "Przedmiot",
        y = "Średnia")
 
-print(wykres_cw4)
+print(wykres_AIR)
 
+
+#wyniki_grupa_A <- c(60, 65, 75, 68, 62)
+#wyniki_grupa_B <- c(78, 80, 85, 92, 88)
+
+wyniki_grupa_A <- c(80, 65, 75, 68, 72)
+wyniki_grupa_B <- c(78, 80, 85, 92, 88)
+
+grupa = c("grupa A", "grupa B")
+srednia = c(mean(wyniki_grupa_A), mean(wyniki_grupa_B))
+if(mean(wyniki_grupa_A) < 70){
+  cat("Grupa A ze srednia ponizej 70")
+  
+}
+
+dane <- data.frame(
+  Grupa = grupa,
+  Matematyka = srednia
+)
+
+#dane_filtr <- dane[dane$Grupa == "grupa A" & dane$Matematyka >= 70, ]
+dane_filtr <- subset(dane, ! (Grupa == "grupa A" & Matematyka < 70))
+  
+wykres <- ggplot(dane_filtr, aes(x = Grupa, y = Matematyka)) +
+  geom_bar(stat = "identity", fill = "skyblue") +
+  labs(title = "Średnie wyniki z testów z Matematyki",
+       x = "grupa",
+       y = "średnia")
+
+print(wykres)
+  
+  
 
 
 
