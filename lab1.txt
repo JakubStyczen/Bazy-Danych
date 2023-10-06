@@ -1,0 +1,102 @@
+vector <- seq(5, 30, by = 5)
+vector[vector > 15]
+vector.mean()
+vector[].sum()
+
+wyniki <- c(75, 48, 90, 60, 30)
+for (wynik in wyniki) {
+	if (wynik > 60){
+		cat("Negatywny")
+	} else{
+		cat("Pozytywny)	
+	}
+
+}
+
+#Cwiczenie 1
+
+v <- c(5, 10, 15, 20, 25)
+
+v1 <- v[v > 15]
+cat(v1)
+
+v_mean <- mean(v)
+cat(v_mean)
+
+v2_sum <- sum(v[1:3])
+cat(v2_sum)
+
+#Cwiczenie 2
+wyniki <- c(75, 48, 90, 60, 30)
+for (wynik in wyniki) {
+  if (wynik >= 60) {
+    cat("Wynik Zaliczony \n")
+  } else {
+    cat("Wynik Niezaliczony \n")
+  }
+}
+
+#Cwiczenie 3
+imiona = c("Jan", "Ola", "Ela")
+wiek = c(25, 30, 28)
+punkty = c(85, 92, 78)
+
+oceny <- rep(0, times=length(punkty))
+for (i in 1:length(punkty)) {
+  if (punkty[i] < 50) {
+    oceny[i] = 2.0
+  } else if (punkty[i] < 61){
+    oceny[i] = 3.0
+  } else if (punkty[i] < 71){
+    oceny[i] = 3.5
+  } else if (punkty[i] < 81){
+    oceny[i] = 4.0
+  } else if (punkty[i] < 91){
+    oceny[i] = 4.5
+  } else {
+    oceny[i] = 5.0
+  }
+}
+
+df <- data.frame(Imię = imiona, Wiek = wiek, Punkty=punkty, Ocena = oceny)
+data = df[df$Wiek < 30,]
+
+#Cwiczenie 4
+
+#install.packages("ggplot2")
+library(ggplot2)
+
+df_cw4 <- data.frame(
+  Przedmiot = c("Analiza i Bazy Danych", "Metody Numeryczne", "Eksploracja Danych"),
+  Średnia = c(71, 67, 89),
+  Rocznik = c(2022, 2022, 2022)
+)
+
+wykres_cw4 <- ggplot(df_cw4, aes(x = Przedmiot, y = Średnia)) +
+  geom_bar(stat = "identity", fill = "skyblue") +
+  labs(title = "Średnia z przedmiotów dla rocznika 2022",
+       x = "Przedmiot",
+       y = "Średnia")
+
+print(wykres_cw4)s
+
+#Zadanie Domowe
+
+Grupa = c("grupa A", "grupa B")
+Średnia_grupaA = mean(wyniki_grupaA)
+Średnia_grupaB = mean(wyniki_grupaB)
+if(Średnia_grupaA < 70){
+  cat("SREDNIA GRUPY A MNIEJSZA OD 70 !")
+
+} else{
+
+  wykres <- ggplot(df_cw4, aes(x = Przedmiot, y = Średnia)) +
+    geom_bar(stat = "identity", fill = "skyblue") +
+    labs(title = "Średnie wyniki z testów z Matematyki",
+         x = "grupa",
+         y = "średnia")
+
+  print(wykres)
+
+
+}
