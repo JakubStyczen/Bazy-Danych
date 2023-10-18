@@ -1,0 +1,39 @@
+---
+title: "Zad 2"
+author: "Jakub Styczen"
+format: html
+editor: visual
+---
+
+
+## Running Code
+
+Wygenerowany kod:
+
+```{r}
+imiona = c("Jan", "Ola", "Ela")
+wiek = c(25, 30, 28)
+punkty = c(85, 92, 78)
+
+df <- data.frame(Imię = imiona, Wiek = wiek, Punkty=punkty)
+
+oceny <- rep(0, times=length(punkty))
+for (i in 1:length(punkty)) {
+  if (punkty[i] < 50) {
+    oceny[i] = 2.0
+  } else if (punkty[i] < 61){
+    oceny[i] = 3.0
+  } else if (punkty[i] < 71){
+    oceny[i] = 3.5
+  } else if (punkty[i] < 81){
+    oceny[i] = 4.0
+  } else if (punkty[i] < 91){
+    oceny[i] = 4.5
+  } else {
+    oceny[i] = 5.0
+  }
+}
+
+df$Oceny <- oceny
+knitr::kable(df)
+```

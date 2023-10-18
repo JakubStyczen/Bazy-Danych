@@ -1,0 +1,14 @@
+---
+title: "zad_dom_pttx"
+author: Jakub Styczen
+format: pptx
+editor: visual
+---
+
+## Quarto
+
+Quarto jako prezentacja z jednym slajdem tekstowym oraz zdjęciem ;)
+
+## Dodane zdjecie w Quarto
+
+![Hipcio](Ohippo.jpg)
